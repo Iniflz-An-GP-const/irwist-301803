@@ -1,0 +1,33 @@
+AssetBasedConstructor
+donor: QuizAppDonor (app.quiz.donor)
+project: Irwist (sklove.irwist.info)
+prefix: SORTO
+seed: 9128066013491989844
+app/src/main/java/app/quiz/donor/ui/composable/approot/background -> v_rotate
+app/src/main/java/app/quiz/donor/ui/composable/approot/background/points -> v_drizzle
+app/src/main/java/app/quiz/donor/ui/composable/approot/topbar -> v_divider
+app/src/main/java/app/quiz/donor/ui/composable/screen/about/card -> v_icon_leading
+app/src/main/java/app/quiz/donor/ui/composable/screen/about/rules/header -> v_divider
+app/src/main/java/app/quiz/donor/ui/composable/screen/about/rules/list -> v_divided_rows
+app/src/main/java/app/quiz/donor/ui/composable/screen/game/answer/button -> v_fill
+app/src/main/java/app/quiz/donor/ui/composable/screen/game/answer/layout -> v_list
+app/src/main/java/app/quiz/donor/ui/composable/screen/game/question -> v_eyebrow
+app/src/main/java/app/quiz/donor/ui/composable/screen/game/streak -> v_badge
+app/src/main/java/app/quiz/donor/ui/composable/screen/game/timer -> v_dashes
+app/src/main/java/app/quiz/donor/ui/composable/screen/game/transition -> v_scale
+app/src/main/java/app/quiz/donor/ui/composable/screen/game_over/player -> v_border
+app/src/main/java/app/quiz/donor/ui/composable/screen/game_over/result -> v_medal
+app/src/main/java/app/quiz/donor/ui/composable/screen/high_scores/card -> v_medal
+app/src/main/java/app/quiz/donor/ui/composable/screen/high_scores/filter -> v_segmented
+app/src/main/java/app/quiz/donor/ui/composable/screen/high_scores/filter/chip -> v_dot
+app/src/main/java/app/quiz/donor/ui/composable/screen/main_menu/content/buttons/play_mode -> v_stacked
+app/src/main/java/app/quiz/donor/ui/composable/screen/main_menu/content/buttons/secondary -> v_stacked
+app/src/main/java/app/quiz/donor/ui/composable/screen/main_menu/content/header -> v_badge
+app/src/main/java/app/quiz/donor/ui/composable/screen/shared/button -> v_plain
+app/src/main/java/app/quiz/donor/ui/composable/screen/shared/modifier/press -> v_scale
+app/src/main/java/app/quiz/donor/ui/composable/screen/splash -> v_rise
+app/src/main/java/app/quiz/donor/ui/composable/screen/topic_selection/card -> v_badge
+app/src/main/java/app/quiz/donor/ui/composable/screen/topic_selection/list -> v_grid
+app/src/main/java/app/quiz/donor/ui/theme -> v_cp4686
+app/src/main/java/app/quiz/donor/ui/theme/dimens -> v_cozy
+app/src/main/java/app/quiz/donor/ui/theme/typography -> v_font_arcade
