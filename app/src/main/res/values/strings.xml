@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">Irwist</string>
-    <string name="sorto_main_menu_tagline">Test Your Knowledge</string>
-    <string name="sorto_app_logo_description">App logo</string>
+    <string name="sorto_main_menu_tagline">Test Your Sports Knowledge</string>
+    <string name="sorto_app_logo_description">Irwist quiz logo</string>
 
     <string name="main_menu_play_solo">Solo</string>
     <string name="main_menu_play_multiplayer">Duo</string>
@@ -11,14 +11,14 @@
 
     <string name="back_icon_description">Back</string>
     <string name="shuffle_icon_description">Shuffle topics</string>
-    <string name="topics_selection_title">Select Topics</string>
+    <string name="topics_selection_title">Choose Sports</string>
     <string name="high_scores_title">High Scores</string>
 
     <string name="about_title">About</string>
     <string name="about_rules_title">How to Play</string>
     <string name="about_version_format">Version %1$s</string>
     <string name="about_developer_label">Developer</string>
-    <string name="sorto_company_name" translatable="false">S&K LOVE LTD</string>
+    <string name="sorto_company_name" translatable="false">S&amp;K LOVE LTD</string>
     <string name="about_contact_label">Contact</string>
     <string name="sorto_customer_support_link" translatable="false">http://sk-love.xyz</string>
 
@@ -32,11 +32,11 @@
     <string name="high_score_card_total_label">Questions</string>
     <string name="high_score_card_date_label">Date</string>
     <string name="high_scores_empty">No high scores yet</string>
-    <string name="topics_selection_empty">No topics available</string>
-    <string name="topics_selection_start">Start Game</string>
+    <string name="topics_selection_empty">No sports available</string>
+    <string name="topics_selection_start">Start Quiz</string>
 
-    <string name="dialog_exit_title">Exit Game?</string>
-    <string name="dialog_exit_message">Your progress will be lost if you exit now.</string>
+    <string name="dialog_exit_title">Leave Quiz?</string>
+    <string name="dialog_exit_message">Your quiz progress will be lost if you exit now.</string>
     <string name="dialog_action_confirm">Exit</string>
     <string name="dialog_action_cancel">Cancel</string>
 

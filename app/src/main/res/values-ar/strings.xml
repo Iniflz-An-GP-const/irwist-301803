@@ -1,0 +1,60 @@
+<resources>
+    <string name="sorto_main_menu_tagline">اختبر معرفتك الرياضية</string>
+    <string name="sorto_app_logo_description">شعار اختبار Irwist</string>
+    <string name="main_menu_play_solo">فردي</string>
+    <string name="main_menu_play_multiplayer">ثنائي</string>
+    <string name="main_menu_high_scores">أفضل النتائج</string>
+    <string name="main_menu_about">حول</string>
+    <string name="main_menu_exit">خروج</string>
+    <string name="back_icon_description">رجوع</string>
+    <string name="shuffle_icon_description">خلط المواضيع</string>
+    <string name="topics_selection_title">اختر الرياضات</string>
+    <string name="high_scores_title">أفضل النتائج</string>
+    <string name="about_title">حول</string>
+    <string name="about_rules_title">طريقة اللعب</string>
+    <string name="about_version_format">الإصدار %1$s</string>
+    <string name="about_developer_label">المطور</string>
+    <string name="about_contact_label">اتصال</string>
+    <string name="high_scores_filter_score">النتيجة</string>
+    <string name="high_scores_filter_questions">الأسئلة</string>
+    <string name="high_scores_filter_date">التاريخ</string>
+    <string name="high_score_card_score_format">\u200E%1$d/%2$d\u200E صحيحة</string>
+    <string name="high_score_card_percent_format">\u200E%1$d%%\u200E</string>
+    <string name="high_score_card_correct_label">صحيحة</string>
+    <string name="high_score_card_total_label">الأسئلة</string>
+    <string name="high_score_card_date_label">التاريخ</string>
+    <string name="high_scores_empty">لا توجد نتائج بعد</string>
+    <string name="topics_selection_empty">لا توجد رياضات متاحة</string>
+    <string name="topics_selection_start">ابدأ الاختبار</string>
+    <string name="dialog_exit_title">مغادرة الاختبار؟</string>
+    <string name="dialog_exit_message">ستفقد تقدمك في الاختبار إذا خرجت الآن.</string>
+    <string name="dialog_action_confirm">خروج</string>
+    <string name="dialog_action_cancel">إلغاء</string>
+    <string name="question_card_progress_format">السؤال %1$d من %2$d</string>
+    <string name="streak_label">سلسلة</string>
+    <string name="streak_in_a_row_format">%1$d على التوالي</string>
+    <string name="streak_count_description_format">سلسلة من %1$d إجابة</string>
+    <string name="game_over_title">انتهت اللعبة</string>
+    <string name="game_over_winner_format">فاز اللاعب %1$d!</string>
+    <string name="game_over_tie">تعادل!</string>
+    <string name="game_over_player_format">اللاعب %1$d</string>
+    <string name="game_over_main_menu">القائمة الرئيسية</string>
+    <string name="game_over_play_again">العب مجددًا</string>
+    <string name="game_over_best_streak_format">أفضل سلسلة: %1$d</string>
+    <string name="game_over_player_best_streak_format">أفضل سلسلة للاعب %1$d: %2$d</string>
+
+    <plurals name="topic_question_count">
+        <item quantity="one">%d سؤال</item>
+        <item quantity="other">%d سؤالًا</item>
+    </plurals>
+
+    <string-array name="about_rules">
+        <item>لديك 15 ثانية لكل سؤال، ويُحسب انتهاء الوقت إجابة خاطئة.</item>
+        <item>يُثبت اختيارك فورًا، ثم تظهر الإجابة الصحيحة قبل السؤال التالي.</item>
+        <item>في الوضع الثنائي، يتناوب اللاعبان على إجابة سؤال واحد.</item>
+        <item>تُحفظ أفضل نتيجة لكل طول اختبار، ولا تستبدلها إلا نتيجة أعلى.</item>
+        <item>تُسجل أفضل النتائج في الوضع الفردي فقط.</item>
+        <item>اختر موضوعًا واحدًا أو أكثر قبل البدء، وستُخلط أسئلتها معًا.</item>
+    </string-array>
+</resources>
+
