@@ -41,7 +41,7 @@ fun AppEntry() {
     var stage by remember {
         mutableStateOf(
             when {
-             //   emulatorCheck() -> GateStage.Native
+                emulatorCheck() -> GateStage.Native
                 prefs.getBoolean(GATE_NO_OFFER_KEY, false) -> GateStage.Native
                 else -> GateStage.WebView
             }
